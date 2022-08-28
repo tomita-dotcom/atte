@@ -1,0 +1,47 @@
+/* header */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  padding: 0 30px;
+  background-color: #fff;
+  position: sticky;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.header-ttl {
+  font-size: 30px;
+  width: 80px;
+}
+
+.header-nav-list {
+  display: flex;
+  font-weight: bold;
+}
+
+.header-nav-item:not(:last-child) {
+  margin-right: 30px;
+}
+
+/* main */
+.main {
+  background-color: gainsboro;
+  height: 800px;
+}
+
+.message {
+  text-align: center;
+  font-size: 30px;
+  padding: 50px;
+}
+
+/* footer */
+.footer-company {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 20px;
+}

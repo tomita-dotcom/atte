@@ -1,0 +1,35 @@
+.date {
+  text-align: center;
+  font-size: 30px;
+  padding: 50px;
+  width: 300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.work-schedule {
+  width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+th,
+td {
+  height: 50px;
+  border-top: solid 1px gray;
+  font-size: 25px;
+}
+
+.name {
+  text-align: left;
+}
+
+.date-change {
+  vertical-align: center;
+  border: solid 1px blue;
+  font-size: 20px;
+  color: blue;
+  font-weight: bold;
+}
