@@ -23,16 +23,11 @@ use App\Http\Controllers\AttendanceController;
 //RegisteredUserController
 Route::get('/register', [RegisteredUserController
 ::class, "create"])->name("register.create");
-Route::post('/register', [RegisteredUserController
-::class, "store"])->name("register.store");
+
 
 //AuthenticatedSessionController
 Route::get('/login', [AuthenticatedSessionController
 ::class, "create"])->name("authenticated.create");
-Route::post('/login', [AuthenticatedSessionController
-::class, "store"])->name("authenticated.store");
-Route::post('/logout', [AuthenticatedSessionController
-::class, "destroy"])->name("authenticated.destroy");
 
 //StampController
 Route::get('/', [StampController
@@ -55,3 +50,10 @@ Route::get('/attendance', [AttendanceController
 ::class, "attendance"])->name("attendance.attendance");
 Route::post('/attendance', [AttendanceController
 ::class, "other_day"])->name("attendance.other_day");
+
+//Laravel Breezeインストールによる追加行
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';//これが追加

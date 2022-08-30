@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 70px;
+  height: 60px;
   padding: 0 30px;
   background-color: #fff;
   position: sticky;
@@ -30,18 +30,21 @@
 /* main */
 .main {
   background-color: gainsboro;
-  height: 800px;
+  z-index: 3;
+  
 }
 
 .message {
   text-align: center;
-  font-size: 30px;
-  padding: 50px;
+  font-size: 20px;
+  padding: 20px;
 }
 
 /* footer */
 .footer-company {
   text-align: center;
   margin-top: 10px;
-  font-size: 20px;
+  font-size: 13px;
+  height: 20px;
+  z-index: 2;
 }

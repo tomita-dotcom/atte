@@ -25,7 +25,7 @@
       <form action="{{route('attendance.other_day')}}" method="post">
       @csrf
       <!-- 見えないinputタグで$display-dateを渡す -->
-      <input type="hidden" name="display-date" value="{{ $display-date }}">
+      <input type="hidden" name="display_date" value="{{ $display_date }}">
       <button type="submit" name="select_day" value="back" class="date-change">＜</button>
       </form>
       {{$dispay-date}}
@@ -45,13 +45,13 @@
         <th>勤務時間</th>
       </tr>
       @foreach($works as $work)
-      @foreach
+      @foreach($rests as $rest)
       <tr>
         <td class="name">{{$user->name}}</td>
         <td>{{$work->start_time}}</td>
         <td>{{$work->end_time}}</td>
-        <td></td>
-        <td></td>
+        <td>{{rest_total}}</td>
+        <td>{{work_total}}</td>
       </tr>
     </table>
   </div>
