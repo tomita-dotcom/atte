@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\RegisterRequest;
 
-class RegisteredUserController
+class RegisteredUserController2
  extends Controller
 {
   public function create()

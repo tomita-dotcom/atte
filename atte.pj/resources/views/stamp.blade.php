@@ -21,7 +21,7 @@
 
 <!-- main -->
 <div class="main">
-  <h1 class="message">{{Auth::user()->name}}さん　お疲れ様です！</h1>
+  <h1 class="message">{{User::user()->name}}さん　お疲れ様です！</h1>
   <div class="stamp-list">
     <form action="{{route('work.start')}}" method="post">
       @csrf

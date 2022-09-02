@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RegisteredUserController;
+use App\Http\Controllers\RegisteredUserController2;
 use App\Http\Controllers\AuthenticatedSessionController;
 use App\Http\Controllers\StampController;
 use App\Http\Controllers\WorkController;
@@ -20,8 +20,8 @@ use App\Http\Controllers\AttendanceController;
 |
 */
 
-//RegisteredUserController
-Route::get('/register', [RegisteredUserController
+//RegisteredUserController2
+Route::get('/register', [RegisteredUserController2
 ::class, "create"])->name("register.create");
 
 
