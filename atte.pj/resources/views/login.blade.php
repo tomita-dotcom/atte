@@ -1,9 +1,11 @@
 @extends('layouts.app')
 
-@section('main')
-<link rel="stylesheet" href="css/reset.css" />
+@section('css')
 <link rel="stylesheet" href="css/common.css" />
 <link rel="stylesheet" href="css/login.css" />
+@endsection
+
+@section('main')
 
 <!-- header -->
 <header class="header">
@@ -22,7 +24,7 @@
 <!-- main -->
 <div class="main">
   <h1 class="message">ログイン</h1>
-  <form action="{{route('authenticated.store')}}" class="login-form" method="post">
+  <form action="{{route('login.store')}}" class="login-form" method="post">
     @csrf
     <input type="email" autocomplete="email" name="email" placeholder="メールアドレス" ><br>
     <input type="password" name="password" placeholder="パスワード">

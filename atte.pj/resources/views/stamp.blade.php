@@ -1,9 +1,12 @@
 @extends('layouts.app')
 
-@section('main')
-<link rel="stylesheet" href="css/reset.css" />
+@section('css')
 <link rel="stylesheet" href="css/common.css" />
 <link rel="stylesheet" href="css/stamp.css" />
+@endsection
+
+@section('main')
+
 
 <!-- header -->
 <header class="header">

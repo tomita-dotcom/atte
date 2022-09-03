@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AuthenticatedSessionController extends Controller
@@ -10,4 +10,6 @@ class AuthenticatedSessionController extends Controller
     {
         return view('login');
     }
+
+    
 }

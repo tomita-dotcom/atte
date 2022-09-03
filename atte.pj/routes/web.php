@@ -9,6 +9,7 @@ use App\Http\Controllers\RestController;
 use App\Http\Controllers\AttendanceController;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

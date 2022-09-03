@@ -11,7 +11,7 @@ class StampController extends Controller
 {
     public function stamp()
     {
-        $user = User::all();
+        $user = Auth::user();
         return view('stamp',['user' => $user]);
     }
 }
