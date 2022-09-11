@@ -14,4 +14,5 @@ class StampController extends Controller
         $user = Auth::user();
         return view('stamp',['user' => $user]);
     }
+
 }

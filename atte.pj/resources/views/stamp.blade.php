@@ -24,11 +24,11 @@
 
 <!-- main -->
 <div class="main">
-  <h1 class="message">{{User::user()->name}}さん　お疲れ様です！</h1>
+  <h1 class="message">{{Auth::user()->name}}さん　お疲れ様です！</h1>
   <div class="stamp-list">
     <form action="{{route('work.start')}}" method="post">
       @csrf
-      <button type="submit" value="stra-twork" class="btn">勤務開始</button>
+      <button type="submit" value="strat-work" class="btn">勤務開始</button>
     </form>
     <form action="{{route('work.end')}}" method="post">
       @csrf

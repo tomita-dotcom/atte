@@ -21,14 +21,12 @@ use App\Http\Controllers\AttendanceController;
 |
 */
 
-//RegisteredUserController2
-Route::get('/register', [RegisteredUserController2
-::class, "create"])->name("register.create");
 
 
-//AuthenticatedSessionController
+
+/*AuthenticatedSessionController
 Route::get('/login', [AuthenticatedSessionController
-::class, "create"])->name("authenticated.create");
+::class, "create"])->name("authenticated.create");*/
 
 //StampController
 Route::get('/', [StampController

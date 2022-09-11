@@ -1,20 +1,23 @@
 .stamp-list {
   display: flex;
   justify-content: center;
+  justify-content: space-around;
   flex-wrap: wrap;
-  margin: 10px 300px;
+  margin: 5px 30px;
 }
 
 .btn {
   background-color: white;
   border-radius: 5px;
   color: black;
-  font-size: 30px;
+  font-size: 20px;
   display: inline-block;
-  margin: 30px auto;
-  width: 600px;
-  height: 250px;
-  line-height: 9;
+  margin: 25px auto;
+  padding: auto 30px;
+  width: 400px;
+  height: 150px;
+  line-height: 5;
   text-align: center;
   outline: none;
+  border: none;
 }
