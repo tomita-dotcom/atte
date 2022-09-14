@@ -20,8 +20,7 @@ class WorkController extends Controller
 
 
         //当日のstart_timeデータがあれば打刻ページへ、なければデータを作成して打刻ページへ
-        if(!empty($start_time)){
-            dd($start_time);
+        /*if(!empty($start_time)){
             return redirect('/');
         }else{
             Work::create([
@@ -29,11 +28,23 @@ class WorkController extends Controller
                 'date' => Carbon::today()->format('Y-m-d'),
                 'start_time' => Carbon::now()->format('H:i:s')
             ]);
-        }
 
+            return redirect('/');
+        }*/
+
+        if($start_time == null){
+            Work::create([
+                'user_id' => Auth::id(),
+                'date' => Carbon::today()->format('Y-m-d'),
+                'start_time' => Carbon::now()->format('H:i:s')
+            ]);
+
+            
+        }
+            return redirect('/');
         
 
-        return redirect('/');
+        
     }
 
     //勤務終了のアクション
