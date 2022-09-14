@@ -18,10 +18,10 @@ class WorkController extends Controller
         $date =Carbon::today()->format('Y-m-d');
         $start_time = Work::where('user_id',$user_id)->where('date',$date)->get('start_time');
 
-        dd($start_time);
 
         //当日のstart_timeデータがあれば打刻ページへ、なければデータを作成して打刻ページへ
-        if(isset($start_time)){
+        if(!empty($start_time)){
+            dd($start_time);
             return redirect('/');
         }else{
             Work::create([
@@ -30,6 +30,8 @@ class WorkController extends Controller
                 'start_time' => Carbon::now()->format('H:i:s')
             ]);
         }
+
+        
 
         return redirect('/');
     }
