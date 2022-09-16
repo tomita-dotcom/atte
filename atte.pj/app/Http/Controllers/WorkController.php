@@ -20,7 +20,7 @@ class WorkController extends Controller
 
 
         //当日のstart_timeデータがあれば打刻ページへ、なければデータを作成して打刻ページへ
-        /*if(!empty($start_time)){
+        if(!is_null($start_time)){
             return redirect('/');
         }else{
             Work::create([
@@ -30,22 +30,10 @@ class WorkController extends Controller
             ]);
 
             return redirect('/');
-        }*/
-
-        if($start_time == null){
-            Work::create([
-                'user_id' => Auth::id(),
-                'date' => Carbon::today()->format('Y-m-d'),
-                'start_time' => Carbon::now()->format('H:i:s')
-            ]);
-
-            
         }
-            return redirect('/');
-        
-
-        
     }
+
+
 
     //勤務終了のアクション
     public function end(Request $request)
@@ -57,7 +45,7 @@ class WorkController extends Controller
 
         //当日のstart_timeデータがある、かつ当日のend_timeがない場合はデータを更新。
         //上記の条件があてはまらなければ、そのまま打刻ページへ
-        if(isset($start_time) && $end_time == null){
+        if(!empty($start_time) && $end_time == null){
             $end_time = Carbon::now()->format('H:i:s');
             Work::where('id',$user_id)->where('date',$date)->update($end_time);
         }
