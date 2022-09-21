@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('css')
 <link rel="stylesheet" href="css/common.css" />
@@ -6,20 +6,6 @@
 @endsection
 
 @section('main')
-
-<!-- header -->
-<header class="header">
-  <h1 class="header-ttl">
-    Atte
-  </h1>
-  <nav class="header-nav">
-    <ul class="header-nav-list">
-      <li class="header-nav-item">ホーム</li>
-      <li class="header-nav-item">日付一覧</li>
-      <li class="header-nav-item">ログアウト</li>
-    </ul>
-  </nav>
-</header>
 
 <!-- main -->
 <div class="main">
@@ -34,5 +20,4 @@
   </form>
 </div>
 
-<!-- footer -->
-<p class="footer-company">Atte,inc.</p>
+@endsection

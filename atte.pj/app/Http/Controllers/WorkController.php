@@ -16,15 +16,14 @@ class WorkController extends Controller
         //当日のstart_timeデータの検索
         $user_id = Auth::id();
         $date =Carbon::today()->format('Y-m-d');
-        $start_time = Work::where('user_id',$user_id)->where('date',$date)->get('start_time');
-
-
+        $work = Work::where('user_id',$user_id)->where('date',$date)->first();
+        
         //当日のstart_timeデータがあれば打刻ページへ、なければデータを作成して打刻ページへ
-        if(!is_null($start_time)){
+        if($work){
             return redirect('/');
         }else{
             Work::create([
-                'user_id' => Auth::id(),
+                'user_id' => $user_id,
                 'date' => Carbon::today()->format('Y-m-d'),
                 'start_time' => Carbon::now()->format('H:i:s')
             ]);
@@ -41,15 +40,28 @@ class WorkController extends Controller
         //当日のend_timeデータの検索
         $user_id = Auth::id();
         $date =Carbon::today()->format('Y-m-d');
-        $end_time = Work::where('user_id',$user_id)->where('date',$date)->get('end_time');
+        $work = Work::where('user_id',$user_id)->where('date',$date)->first();
+
+        if($work){
+            $start_time = $work->start_time;
+            $end_time = $work->end_time;
+        }else{
+            return redirect('/');
+        }
 
         //当日のstart_timeデータがある、かつ当日のend_timeがない場合はデータを更新。
         //上記の条件があてはまらなければ、そのまま打刻ページへ
-        if(!empty($start_time) && $end_time == null){
+
+        if(!$start_time || $end_time){
+            return redirect('/');
+        }else{
             $end_time = Carbon::now()->format('H:i:s');
-            Work::where('id',$user_id)->where('date',$date)->update($end_time);
+            Work::where('user_id',$user_id)->where('date',$date)->update([
+                'end_time' => $end_time
+            ]);
+            return redirect('/');
         }
-        return redirect('/');
+        
     }
 
 }

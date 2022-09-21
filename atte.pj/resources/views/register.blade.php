@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('css')
 <link rel="stylesheet" href="css/common.css" />
@@ -6,14 +6,6 @@
 @endsection
 
 @section('main')
-
-
-<!-- header -->
-  <header class="header">
-    <h1 class="header-ttl">
-      Atte
-    </h1>
-  </header>
 
 <!-- main -->
 <div class="main">
@@ -30,6 +22,5 @@
   </form>
 </div>
 
-<!-- footer -->
-<p class="footer-company">Atte,inc.</p>
+@endsection
 

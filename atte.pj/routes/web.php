@@ -28,27 +28,30 @@ use App\Http\Controllers\AttendanceController;
 Route::get('/login', [AuthenticatedSessionController
 ::class, "create"])->name("authenticated.create");*/
 
-//StampController
-Route::get('/', [StampController
-::class, "stamp"])->name("stamp");
+Route::group(['middleware' => ['auth']], function(){
+    //StampController
+    Route::get('/', [StampController
+    ::class, "stamp"])->name("stamp");
 
-//WorkController
-Route::post('/work/start', [WorkController
-::class, "start"])->name("work.start");
-Route::post('/work/end', [WorkController
-::class, "end"])->name("work.end");
+    //WorkController
+    Route::post('/work/start', [WorkController
+    ::class, "start"])->name("work.start");
+    Route::post('/work/end', [WorkController
+    ::class, "end"])->name("work.end");
 
-//RestController
-Route::post('/rest/start', [RestController
-::class, "start"])->name("rest.start");
-Route::post('/rest/end', [RestController
-::class, "end"])->name("rest.end");
+    //RestController
+    Route::post('/rest/start', [RestController
+    ::class, "start"])->name("rest.start");
+    Route::post('/rest/end', [RestController
+    ::class, "end"])->name("rest.end");
 
-//AttendanceController
-Route::get('/attendance', [AttendanceController
-::class, "attendance"])->name("attendance.attendance");
-Route::post('/attendance', [AttendanceController
-::class, "other_day"])->name("attendance.other_day");
+    //AttendanceController
+    Route::get('/attendance', [AttendanceController
+    ::class, "attendance"])->name("attendance.attendance");
+    Route::post('/attendance', [AttendanceController
+    ::class, "other_day"])->name("attendance.other_day");
+});
+
 
 //Laravel Breezeインストールによる追加行
 Route::get('/dashboard', function () {

@@ -23,6 +23,17 @@
   font-weight: bold;
 }
 
+.logout-btn {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+  align-items: center;
+  display: inline-block;
+  outline: none;
+  border: none;
+}
 .header-nav-item:not(:last-child) {
   margin-right: 30px;
 }

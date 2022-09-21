@@ -15,7 +15,6 @@ class AttendanceController extends Controller
 
     public function other_day(Request $request)
     {
-        // 変数名は$display_dateだと後で使うものと被るので$request_dateに変更しました
         $request_date = $request['display_date'];
         Log::alert('$request_dateの出力調査', ['$request_date' => $request_date]);
 

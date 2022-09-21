@@ -7,24 +7,11 @@
 
 @section('main')
 
-
-<!-- header -->
-<header class="header">
-  <h1 class="header-ttl">
-    Atte
-  </h1>
-  <nav class="header-nav">
-    <ul class="header-nav-list">
-      <li class="header-nav-item">ホーム</li>
-      <li class="header-nav-item">日付一覧</li>
-      <li class="header-nav-item">ログアウト</li>
-    </ul>
-  </nav>
-</header>
-
 <!-- main -->
 <div class="main">
+  
   <h1 class="message">{{Auth::user()->name}}さん　お疲れ様です！</h1>
+  
   <div class="stamp-list">
     <form action="{{route('work.start')}}" method="post">
       @csrf
@@ -38,13 +25,12 @@
       @csrf
       <button type="submit" value="strat-rest" class="btn">休憩開始</button>
     </form>
-    <form action="{{route('rest.start')}}" method="post">
+    <form action="{{route('rest.end')}}" method="post">
       @csrf
       <button type="submit" value="rest-end" class="btn">休憩終了</button>
     </form>
   </div>
 </div>
 
-<!-- footer -->
-<p class="footer-company">Atte,inc.</p>
+
 @endsection

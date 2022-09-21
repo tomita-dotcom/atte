@@ -16,20 +16,8 @@
         <h1 class="header-ttl">
             Atte
         </h1>
-        <nav class="header-nav">
-            <ul class="header-nav-list">
-                <li class="header-nav-item">ホーム</li>
-                <li class="header-nav-item">日付一覧</li>
-                <li class="header-nav-item">
-                    <form action="/logout" method="post">
-                        @csrf
-                        <button class="logout-btn">ログアウト</button>
-                    </form>
-                </li>
-            </ul>
-        </nav>
     </header>
-
+    
     <main class="main">
         @yield('main')
     </main>

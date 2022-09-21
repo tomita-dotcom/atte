@@ -5,19 +5,6 @@
 <link rel="stylesheet" href="css/common.css" />
 <link rel="stylesheet" href="css/attendance.css" />
 
-<!-- header -->
-  <header class="header">
-    <h1 class="header-ttl">
-      Atte
-    </h1>
-    <nav class="header-nav">
-      <ul class="header-nav-list">
-        <li class="header-nav-item">ホーム</li>
-        <li class="header-nav-item">日付一覧</li>
-        <li class="header-nav-item">ログアウト</li>
-      </ul>
-    </nav>
-  </header>
 
 <!-- main -->
 <div class="main">
@@ -56,5 +43,4 @@
     </table>
   </div>
 
-<!-- footer -->
-<p class="footer-company">Atte,inc.</p>
+@endsection
