@@ -34,16 +34,20 @@ Route::group(['middleware' => ['auth']], function(){
     ::class, "stamp"])->name("stamp");
 
     //WorkController
-    Route::post('/work/start', [WorkController
-    ::class, "start"])->name("work.start");
-    Route::post('/work/end', [WorkController
-    ::class, "end"])->name("work.end");
+    Route::prefix('work')->group(function () {
+        Route::post('/work/start', [WorkController
+        ::class, "start"])->name("work.start");
+        Route::post('/work/end', [WorkController
+        ::class, "end"])->name("work.end");
+    });
 
     //RestController
-    Route::post('/rest/start', [RestController
-    ::class, "start"])->name("rest.start");
-    Route::post('/rest/end', [RestController
-    ::class, "end"])->name("rest.end");
+        Route::prefix('rest')->group(function () {
+        Route::post('/rest/start', [RestController
+        ::class, "start"])->name("rest.start");
+        Route::post('/rest/end', [RestController
+        ::class, "end"])->name("rest.end");
+    });
 
     //AttendanceController
     Route::get('/attendance', [AttendanceController
