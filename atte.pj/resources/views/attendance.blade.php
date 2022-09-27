@@ -8,7 +8,7 @@
 
 <!-- main -->
 <div class="main">
-    <h1 class="date">
+    <h1 class="date-ttl">
       <form action="{{route('attendance.other_day')}}" method="post">
           @csrf
           <!-- 見えないinputタグで$display-dateを渡す -->
@@ -39,12 +39,13 @@
       </tr>
       @foreach($works as $work)
       <tr>
-        <td class="name">{{$work->user->getName()}}</td>
-        <!-- <td>{{$work->start_time}}</td>
+        <td class="name">{{$work->user->name}}</td>
+        <td>{{$work->start_time}}</td>
         <td>{{$work->end_time}}</td>
-        <td>{{rest_total}}</td>
-        <td>{{work_total}}</td> -->
+        <td>{{$work->total_rests()}}</td>
+        <td>{{$work->total_works()}}</td>
       </tr>
+      @endforeach
     </table>
   </div>
 

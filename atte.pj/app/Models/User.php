@@ -37,9 +37,6 @@ class User extends Authenticatable
         return $this->hasOne('App\Models\Work');
     }
 
-    public function getName(){
-        return $this->name;
-    }
 
     /**
      * The attributes that should be cast.

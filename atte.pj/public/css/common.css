@@ -42,7 +42,7 @@
 .main {
   background-color: gainsboro;
   z-index: 3;
-  
+  height: 480px;
 }
 
 .message {
