@@ -43,3 +43,25 @@ svg.w-5.h-5 {
   width: 30px;
   height: 30px;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.Pagination-Item-Link{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  border: solid 2px gainsboro;
+  font-size: 14px;
+  color: blue;
+  font-weight: bold;
+  transition: all 0.15s linear;
+}

@@ -15,15 +15,15 @@ class AttendanceController extends Controller
 {
     public function attendance(Request $request){
         $display_date =Carbon::today()->format('Y-m-d');
-        $works = Work::where('date',$display_date)->get();
-        
+        $works = Work::where('date',$display_date)->Paginate(5);
+        $works->appends(compact('display_date')); 
+
         $list_element = [
             'display_date' => $display_date,
-            'works' => $works,
+            'works' => $works,       
         ];
         
         return view('attendance', $list_element);
-
     }
     
 
@@ -35,29 +35,20 @@ class AttendanceController extends Controller
         if($select_day == "back"){
             // $request_dateを基準にした1日前の日付を$display_dateに格納
             $display_date = date("Y-m-d", strtotime("$request_date -1 day"));
-            $works = Work::where('date',$display_date)->get();
-    
-            $list_element = [
-                'display_date' => $display_date,
-                'works' => $works,
-            ];
-            
-            return view('attendance', $list_element);
-
-            
         }else if($select_day == "next"){
             // $request_dateを基準にした1日後の日付を$display_dateに格納
             $display_date = date("Y-m-d", strtotime("$request_date +1 day"));
-            $works = Work::where('date',$display_date)->get();
-    
-            $list_element = [
-                'display_date' => $display_date,
-                'works' => $works,
-            ];
-            
-            return view('attendance', $list_element);
         }
+        
+        $works = Work::where('date',$display_date)->Paginate(5);
+        $works->appends(compact('display_date'));
 
+        $list_element = [
+            'display_date' => $display_date,
+            'works' => $works,
+        ];
+        
+        return view('attendance', $list_element);
     }
 
     

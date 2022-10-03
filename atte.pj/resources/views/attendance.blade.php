@@ -4,6 +4,10 @@
 <link rel="stylesheet" href="css/reset.css" />
 <link rel="stylesheet" href="css/common.css" />
 <link rel="stylesheet" href="css/attendance.css" />
+<link href=“https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css” rel=“stylesheet” integrity=“sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3” crossorigin=“anonymous”>
+
+
+
 
 
 <!-- main -->
@@ -47,6 +51,7 @@
       </tr>
       @endforeach
     </table>
+    {{ $works->appends($display_date)->links('vendor.pagination.bootstrap-4') }}
   </div>
 
 @endsection

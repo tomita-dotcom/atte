@@ -42,23 +42,29 @@ class Work extends Model
             $rest_total_sec += $rest_end_time_sec - $rest_start_time_sec;
         }
 
+        if(!$rest_total_sec == 0){
+            return $this->to_time($rest_total_sec);
+        }else{
+            return('-');
+        }
 
-        return $this->to_time($rest_total_sec);
+
+        
     }
 
     public function total_works(){
         $work_start_time = $this->start_time;
         $work_end_time = $this->end_time;
-        
 
-        $work_start_time_sec = $this->to_sec($work_start_time);
-        $work_end_time_sec = $this->to_sec($work_end_time);
+        if($work_end_time){     
+            $work_start_time_sec = $this->to_sec($work_start_time);
+            $work_end_time_sec = $this->to_sec($work_end_time);
 
-        $work_total_sec = $work_end_time_sec - $work_start_time_sec;
-    
-
-        return $this->to_time($work_total_sec);
-
+            $work_total_sec = $work_end_time_sec - $work_start_time_sec - $this->to_sec($this->total_rests());
+            return $this->to_time($work_total_sec);
+        }else{
+            return('勤務中');
+        }
     }
 
     public function to_sec($time){
