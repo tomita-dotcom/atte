@@ -14,7 +14,13 @@ use App\Http\Requests\LoginRequest;
 class AttendanceController extends Controller
 {
     public function attendance(Request $request){
-        $display_date =Carbon::today()->format('Y-m-d');
+
+        if($request->display_date){
+            $display_date = $request->display_date;
+        }else{
+            $display_date =Carbon::today()->format('Y-m-d');
+        }
+    
         $works = Work::where('date',$display_date)->Paginate(5);
         $works->appends(compact('display_date')); 
 
@@ -39,16 +45,9 @@ class AttendanceController extends Controller
             // $request_dateを基準にした1日後の日付を$display_dateに格納
             $display_date = date("Y-m-d", strtotime("$request_date +1 day"));
         }
-        
-        $works = Work::where('date',$display_date)->Paginate(5);
-        $works->appends(compact('display_date'));
+        dd($display_date);
+        return redirect('/attendance')->withInput(['display_date' => $display_date]);
 
-        $list_element = [
-            'display_date' => $display_date,
-            'works' => $works,
-        ];
-        
-        return view('attendance', $list_element);
     }
 
     

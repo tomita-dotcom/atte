@@ -61,7 +61,7 @@
 @mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
   $min: breakpoint-min($name, $breakpoints);
   @if $min {
-    @media (min-width: $min) {
+    @media (min-width: 1280px) {
       @content;
     }
   } @else {
