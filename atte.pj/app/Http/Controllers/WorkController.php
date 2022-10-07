@@ -50,9 +50,11 @@ class WorkController extends Controller
         }
 
         //当日のstart_timeデータがある、かつ当日のend_timeがない場合はデータを更新。
+        //勤務開始から日を跨いだら、勤務開始日の23時59分に勤務終了の打刻
         //上記の条件があてはまらなければ、そのまま打刻ページへ
 
-        if(!$start_time || $end_time){
+
+        if($end_time){
             return redirect('/');
         }else{
             $end_time = Carbon::now()->format('H:i:s');
