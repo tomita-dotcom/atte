@@ -13,9 +13,7 @@
 <body class="container">
     <!-- header -->
     <header class="header">
-        <h1 class="header-ttl">
-            Atte
-        </h1>
+        <h1 class="header-ttl"> Atte</h1>
         <nav class="header-nav">
             <ul class="header-nav-list">
                 <li class="header-nav-item">ホーム</li>
@@ -29,12 +27,15 @@
             </ul>
         </nav>
     </header>
+    <!-- end・header -->
 
-    <main class="main">
-        @yield('main')
-    </main>
+    <!-- main -->
+    <main class="main">@yield('main')</main>
+    <!-- end・main -->
 
     <!-- footer -->
     <p class="footer-company">Atte,inc.</p>
+    <!-- end・footer -->
+
 </body>
 </html>

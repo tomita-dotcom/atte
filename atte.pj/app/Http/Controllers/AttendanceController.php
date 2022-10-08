@@ -13,7 +13,8 @@ use App\Http\Requests\LoginRequest;
 
 class AttendanceController extends Controller
 {
-    public function attendance(Request $request){
+    public function attendance(Request $request)
+    {
         
         if($request->old('display_date')){  
             $display_date = $request->old('display_date');

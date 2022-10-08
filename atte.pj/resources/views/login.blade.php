@@ -8,7 +8,7 @@
 @section('main')
 
 <!-- main -->
-<div class="main">
+<div class="main login">
   <h1 class="message">ログイン</h1>
   <form action="{{route('login.store')}}" class="login-form" method="post">
     @csrf
