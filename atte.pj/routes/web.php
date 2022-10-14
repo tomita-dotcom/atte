@@ -45,7 +45,7 @@ Route::post('/rest/end', [RestController::class, "end"])->name("rest.end");
 //AttendanceController
 Route::get('/attendance', [AttendanceController
 ::class, "attendance"])->name("attendance.attendance");
-Route::post('/attendance', [AttendanceController
+Route::get('/attendance/other-day', [AttendanceController
 ::class, "other_day"])->name("attendance.other_day");
 
 });

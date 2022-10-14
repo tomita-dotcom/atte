@@ -16,8 +16,8 @@ class AttendanceController extends Controller
     public function attendance(Request $request)
     {
         
-        if($request->old('display_date')){  
-            $display_date = $request->old('display_date');
+        if($request->display_date){  
+            $display_date = $request->display_date;
         }else{
             $display_date =Carbon::today()->format('Y-m-d');
         }
@@ -36,6 +36,7 @@ class AttendanceController extends Controller
 
     public function other_day(Request $request)
     {
+
         $request_date = $request['display_date'];
         $select_day = $request['select_day'];
 
@@ -48,7 +49,7 @@ class AttendanceController extends Controller
         }
         
 
-        return redirect('/attendance')->withInput(['display_date' => $display_date]);
+        return redirect()->route('attendance.attendance', ['display_date' => $display_date]);
 
     }
 

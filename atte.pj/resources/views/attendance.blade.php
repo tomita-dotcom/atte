@@ -4,13 +4,13 @@
 <link rel="stylesheet" href="css/reset.css" />
 <link rel="stylesheet" href="css/common.css" />
 <link rel="stylesheet" href="css/attendance.css" />
-<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+
 @endsection
 
 @section('main')
 <div class="main">
     <h1 class="date-ttl">
-      <form action="{{route('attendance.other_day')}}" method="post">
+      <form action="{{route('attendance.other_day')}}" method="get">
           @csrf
           <!-- 見えないinputタグで$display-dateを渡す -->
           <input type="hidden" name="display_date" value="{{ $display_date }}">
@@ -23,7 +23,7 @@
         {{ $display_date }}
       </div>
 
-      <form action="{{route('attendance.other_day')}}" method="post">
+      <form action="{{ route('attendance.other_day') }}" method="get">
           @csrf
           <!-- 見えないinputタグで$display_dateを渡す -->
           <input type="hidden" name="display_date" value="{{ $display_date }}">
@@ -53,7 +53,7 @@
       @endforeach
     </table>
 
-    {{ $works->appends($display_date)->links('vendor.pagination.bootstrap-4') }}
+    {{ $works->appends($display_date)->links('vendor.pagination.default') }}
 </div>
 
 @endsection

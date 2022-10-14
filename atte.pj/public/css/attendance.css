@@ -51,7 +51,7 @@ svg.w-5.h-5 {
 }
 
 
-.Pagination-Item-Link{
+.Pagination-Item-Link {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,7 +61,11 @@ svg.w-5.h-5 {
   background: #fff;
   border: solid 2px gainsboro;
   font-size: 14px;
-  color: blue;
+  color: blue ;
   font-weight: bold;
   transition: all 0.15s linear;
+}
+
+.pagination li.current a {
+  background-color: #58A9EF !important;
 }
