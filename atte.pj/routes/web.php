@@ -22,12 +22,6 @@ use App\Http\Controllers\AttendanceController;
 */
 
 
-
-
-/*AuthenticatedSessionController
-Route::get('/login', [AuthenticatedSessionController
-::class, "create"])->name("authenticated.create");*/
-
 Route::group(['middleware' => ['auth']], function(){
 //StampController
 Route::get('/', [StampController::class, "stamp"])->name("stamp");

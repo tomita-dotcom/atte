@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
-use App\Models\User;
 use App\Models\Work;
 
 class WorkController extends Controller
@@ -19,15 +18,15 @@ class WorkController extends Controller
         $work = Work::where('user_id',$user_id)->where('date',$date)->first();
         
         //当日のstart_timeデータがあれば打刻ページへ、なければデータを作成して打刻ページへ
-        if($work){
+        if ($work){
             return redirect('/');
-        }else{
+        } else {
             Work::create([
                 'user_id' => $user_id,
                 'date' => Carbon::today()->format('Y-m-d'),
                 'start_time' => Carbon::now()->format('H:i:s')
             ]);
-
+            
             return redirect('/');
         }
     }
@@ -42,10 +41,10 @@ class WorkController extends Controller
         $date =Carbon::today()->format('Y-m-d');
         $work = Work::where('user_id',$user_id)->where('date',$date)->first();
 
-        if($work){
+        if ($work){
             $start_time = $work->start_time;
             $end_time = $work->end_time;
-        }else{
+        } else {
             return redirect('/');
         }
 
@@ -54,9 +53,9 @@ class WorkController extends Controller
         //上記の条件があてはまらなければ、そのまま打刻ページへ
 
 
-        if($end_time){
+        if ($end_time){
             return redirect('/');
-        }else{
+        } else {
             $end_time = Carbon::now()->format('H:i:s');
             Work::where('user_id',$user_id)->where('date',$date)->update([
                 'end_time' => $end_time

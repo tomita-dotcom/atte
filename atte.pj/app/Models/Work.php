@@ -27,12 +27,14 @@ class Work extends Model
         return $this->hasMany('App\Models\Rest');
     }
 
-    public function total_rests(){
+    public function total_rests()
+    {
         $rests = $this->rests()->get();
 
         $rest_total_sec = 0;
 
-        foreach($rests as $rest){
+        foreach($rests as $rest)
+        {
             $rest_start_time = $rest->start_time;
             $rest_end_time = $rest->end_time;
 
@@ -42,32 +44,34 @@ class Work extends Model
             $rest_total_sec += $rest_end_time_sec - $rest_start_time_sec;
         }
 
-        if(!$rest_total_sec == 0){
+        if ($rest_total_sec < 0){
+            return ('休憩中');
+        } elseif ($rest_total_sec > 0){
             return $this->to_time($rest_total_sec);
-        }else{
+        } else {
             return('-');
         }
-
-
         
     }
 
-    public function total_works(){
+    public function total_works()
+    {
         $work_start_time = $this->start_time;
         $work_end_time = $this->end_time;
 
-        if($work_end_time){     
+        if ($work_end_time){     
             $work_start_time_sec = $this->to_sec($work_start_time);
             $work_end_time_sec = $this->to_sec($work_end_time);
 
             $work_total_sec = $work_end_time_sec - $work_start_time_sec - $this->to_sec($this->total_rests());
             return $this->to_time($work_total_sec);
-        }else{
+        } else {
             return('勤務中');
         }
     }
 
-    public function to_sec($time){
+    public function to_sec($time)
+    {
         $t = explode(":", $time); //配列（$t[0]（時）、$t[1]（分）、$t[2]（秒））にする
         $h = (int)$t[0];
         if (isset($t[1])) { //分の部分に値が入っているか確認
@@ -83,7 +87,8 @@ class Work extends Model
         return ($h * 60 * 60) + ($m * 60) + $s;
     }
 
-    public function to_time($sec){
+    public function to_time($sec)
+    {
         $hours = floor($sec / 3600); //時間
         $minutes = floor(($sec / 60) % 60); //分
         $seconds = floor($sec % 60); //秒

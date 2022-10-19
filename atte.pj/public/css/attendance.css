@@ -1,4 +1,4 @@
-.date-ttl{
+.date-ttl {
   display: flex;
   justify-content: space-between;
   padding: 15px 50px;
@@ -32,9 +32,9 @@ td {
 
 .date-change {
   vertical-align: auto;
-  border: solid 1px blue;
+  border: solid 1px #4169e1;
   font-size: 20px;
-  color: blue;
+  color: #4169e1;
   font-weight: bold;
 }
 
@@ -61,11 +61,18 @@ svg.w-5.h-5 {
   background: #fff;
   border: solid 2px gainsboro;
   font-size: 14px;
-  color: blue ;
+  color: #4169e1 ;
   font-weight: bold;
   transition: all 0.15s linear;
+  text-decoration: none !important;
 }
 
-.pagination li.current a {
-  background-color: #58A9EF !important;
+.active {
+  background-color: #4169e1;
+  color:white
+}
+
+a{
+  color:#4169e1;
+  text-decoration: none;
 }
