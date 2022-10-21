@@ -7,7 +7,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     @yield('css')
-    <title>Contact Form</title>
+    <title>Atte - @yield('title')</title>
+    <meta name="description" content="Atteは勤怠管理システムです">
+    <!-- <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}"> -->
 </head>
 
 <body class="container">

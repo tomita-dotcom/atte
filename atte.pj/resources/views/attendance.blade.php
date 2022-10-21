@@ -7,6 +7,8 @@
 
 @endsection
 
+@section('title', 'attendance')
+
 @section('main')
 <div class="main">
     <h1 class="date-ttl">

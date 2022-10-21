@@ -5,6 +5,8 @@
 <link rel="stylesheet" href="css/login.css" />
 @endsection
 
+@section('title', 'login')
+
 @section('main')
 
 <!-- main -->

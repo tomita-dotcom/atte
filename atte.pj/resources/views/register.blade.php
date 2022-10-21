@@ -5,6 +5,8 @@
 <link rel="stylesheet" href="css/register.css" />
 @endsection
 
+@section('title', 'register')
+
 @section('main')
 <div class="main regiter">
       <h1 class="message">会員登録</h1>

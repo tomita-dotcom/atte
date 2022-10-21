@@ -5,6 +5,8 @@
 <link rel="stylesheet" href="css/stamp.css" />
 @endsection
 
+@section('title', 'stamp')
+
 @section('main')
 <div class="main stamp">
   <h1 class="message">{{ Auth::user()->name }}さん　お疲れ様です！</h1>
